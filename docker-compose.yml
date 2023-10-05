@@ -1,0 +1,50 @@
+services:
+    backend:
+        image: crypticend/bingo-back-end:latest
+        container_name: backend
+        build:
+            context: bingo-back-end
+            dockerfile: Dockerfile
+        ports:
+            - 8080:8080
+        environment:
+            spring.datasource.url: jdbc:mysql://database:3306/bingo
+            spring.datasource.username: java
+            spring.datasource.password: tC7/LPOmrS
+            
+    frontend:
+        image: crypticend/bingo-front-end:latest
+        container_name: frontend
+        environment:
+            REACT_APP_CONNECTION_URL: http://localhost:8080/api
+        build:
+            context: bingo-front-end
+            dockerfile: Dockerfile
+        ports:
+            - 32770:32770
+            
+    database:
+        image: mysql:latest
+        container_name: database
+        restart: always
+        volumes:
+          - BINGO:/var/lib/mysql
+        environment:
+           MYSQL_DATABASE: bingo
+           MYSQL_ROOT_PASSWORD_FILE: /run/secrets/db_root_password
+           MYSQL_USER: java
+           MYSQL_PASSWORD_FILE: /run/secrets/db_password
+        ports:
+          - 3307:3306
+        secrets:
+          - db_password
+          - db_root_password
+
+secrets:
+    db_password:
+      file: secrets/db_password.txt
+    db_root_password:
+     file: secrets/db_root_password.txt
+
+volumes:
+    BINGO:
