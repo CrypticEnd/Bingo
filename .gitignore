@@ -37,3 +37,5 @@ bingo-front-end/.pnp.js
 bingo-front-end/build
 *.tar
 secrets/
+
+**/secrets.properties
