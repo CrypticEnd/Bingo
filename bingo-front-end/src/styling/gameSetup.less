@@ -1,0 +1,82 @@
+.GameSetup {
+    display: grid;
+    grid-template-areas: 'settings logo'
+        'settings mixes'
+        'na mixes';
+    grid-template-columns: 300px auto;
+
+    .logo-container {
+        grid-area: logo;
+        margin: 0 auto;
+    }
+
+    .GameSettings {
+        grid-area: settings;
+        margin: 5%;
+        margin-top: 10%;
+        padding: 2%;
+        padding-top: 20px;
+        border: 2px solid @color-seccodary;
+        text-align: center;
+        background-color: @color-primary;
+
+        #name-input{
+            text-align: center;
+        }
+
+        #name-helper-text{
+            border-bottom: 2px solid @color-seccodary;
+            padding-bottom: 5px;
+            margin-bottom: 20px;
+        }
+
+        Button{
+            margin-top: 10px;
+        }
+    }
+
+
+    .BingoMixes {
+        grid-area: mixes;
+        margin-right: 5%;
+        text-align: center;
+
+        h1{
+            text-decoration: underline;
+        }
+
+        .card {
+            display: inline-block;
+            text-align: center;
+            border: 2px solid @color-seccodary;
+            background-color: @color-primary;
+            width: 250px;
+            aspect-ratio: 1.9;
+            padding: 5px;
+            margin: 5px;
+            white-space: nowrap;
+            overflow: hidden;
+
+            Button {
+                width: 125px;
+            }
+
+            h2 {
+                margin-bottom: 0px;
+            }
+
+            p {
+                margin-top: 5px;
+                font-style: italic;
+            }
+        }
+
+        #create:hover {
+            background-color: @color-selected;
+        }
+
+        .selected {
+            background-color: @color-selected;
+        }
+    }
+}

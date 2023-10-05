@@ -1,0 +1,41 @@
+.GameBoard {
+
+    .logo {
+        margin: 0 auto;
+        display: block;
+
+    }
+
+    .Game {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
+
+        .GameInfo {
+            width: 200px;
+            padding-left: 2%;
+            text-transform: uppercase;
+            text-align: center;
+
+            .InfoBox {
+                background-color: @color-primary;
+                padding-top: 10px;
+                padding-bottom: 10px;
+
+                h2 {
+                    text-decoration: underline;
+                }
+            }
+        }
+
+        .BingoButton {
+            width: 200px;
+            padding-right: 2%;
+        }
+
+        .bingoBoard {
+            width: 60%;
+        }
+    }
+}
